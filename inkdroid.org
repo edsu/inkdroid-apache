@@ -1,0 +1,25 @@
+<VirtualHost *:9000>
+    ServerAdmin ehs@pobox.com 
+    ServerName inkdroid.org
+    ServerAlias www.inkdroid.org
+
+    DocumentRoot /var/www/inkdroid.org/
+    <Directory />
+        Options FollowSymLinks
+        AllowOverride All
+    </Directory>
+
+    Alias /bzr "/home/ed/bzr"
+    <Directory "/home/ed/bzr">
+        Options FollowSymlinks Indexes 
+    </Directory>
+
+    ErrorLog /var/log/apache2/inkdroid.org-error.log
+
+    # Possible values include: debug, info, notice, warn, error, crit,
+    # alert, emerg.
+    LogLevel warn
+
+    CustomLog /var/log/apache2/inkdroid.org-access.log combined
+
+</VirtualHost>
